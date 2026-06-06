@@ -8,7 +8,7 @@ var player_alive = true
 
 var attack_ip = false
 
-const speed = 100
+const speed = 70
 var current_dir = "down"
 
 func _ready():
@@ -91,26 +91,21 @@ func play_anim(movement):
 			if attack_ip == false:
 				anim.play("back_idle")
 
-func player():
-	pass
-
-
-
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
+		$AnimatedSprite2D.modulate = Color("#ff503f")
+		$make_red.start()
 
 
 func _on_player_hitbox_area_entered(area: Area2D) -> void:
-	
 		enemy_inattack_range = true
 
 
 func _on_player_hitbox_area_exited(area: Area2D) -> void:
-	
 		enemy_inattack_range = false
 
 
@@ -145,3 +140,7 @@ func _on_deal_attack_timer_timeout():
 	global.player_current_attack = false
 	attack_ip = false
 	
+
+
+func _on_make_red_timeout() -> void:
+	sprite.modulate = Color.WHITE

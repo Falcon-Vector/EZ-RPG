@@ -417,20 +417,19 @@ animations = [{
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 15.033297
+radius = 14.0
 
 [node name="player" type="CharacterBody2D" unique_id=635433776]
-collision_layer = 2
-collision_mask = 5
+collision_layer = 27
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=18323498]
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_76oay")
-animation = &"back_attack"
+animation = &"front_attack"
 autoplay = "front_idle"
-frame = 3
-frame_progress = 0.34026822
+frame = 2
+frame_progress = 0.511433
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339033903]
 y_sort_enabled = true
@@ -438,24 +437,34 @@ position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1062734902]
-zoom = Vector2(5, 5)
-position_smoothing_enabled = true
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 415
+limit_bottom = 191
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="player_hitbox" type="Area2D" parent="." unique_id=1227275307]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox" unique_id=195031778]
-position = Vector2(0, 8)
+position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="attack_cooldown" type="Timer" parent="." unique_id=266100201]
-wait_time = 0.5
 
 [node name="deal_attack_timer" type="Timer" parent="." unique_id=1251472719]
 wait_time = 0.5
+
+[node name="make_red" type="Timer" parent="." unique_id=1013490917]
+wait_time = 0.2
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="make_red" to="." method="_on_make_red_timeout"]

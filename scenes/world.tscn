@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://syv8xiij2eh0"]
 
 [ext_resource type="Texture2D" uid="uid://48gg5vbne3nv" path="res://art/mystic_woods_free_2.2/sprites/tilesets/plains.png" id="1_4wyf3"]
-[ext_resource type="Script" uid="uid://0c12v0xd44qe" path="res://scripts/global.gd" id="1_qfnet"]
+[ext_resource type="Script" uid="uid://4dsimtmuoynu" path="res://scenes/world.gd" id="1_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cyfygiqu5esun" path="res://art/mystic_woods_free_2.2/sprites/tilesets/grass.png" id="2_k0juu"]
 [ext_resource type="Texture2D" uid="uid://d2co4bgc82bjk" path="res://art/mystic_woods_free_2.2/sprites/objects/objects.png" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://db0fj063g6abg" path="res://scenes/player.tscn" id="4_k0juu"]
@@ -76,6 +76,9 @@ sources/0 = SubResource("TileSetAtlasSource_qfnet")
 sources/1 = SubResource("TileSetAtlasSource_i7141")
 sources/2 = SubResource("TileSetAtlasSource_4mrxx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7141"]
+size = Vector2(58, 43)
+
 [node name="world" type="Node2D" unique_id=1608981725]
 y_sort_enabled = true
 position = Vector2(1, 0)
@@ -100,3 +103,19 @@ position = Vector2(53, 78)
 
 [node name="enemy" parent="." unique_id=361393803 instance=ExtResource("5_71j4m")]
 position = Vector2(294, 142)
+
+[node name="collisions" type="StaticBody2D" parent="." unique_id=1756902241]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions" unique_id=2073492009]
+polygon = PackedVector2Array(3, 0, 184, 0, 183, -43, 242, -44, 242, 0, 259, 0, 259, 32, 289, 32, 289, 50, 416, 49, 416, 192, -1, 192, -1, -9, -124, -5, -167, 96, -181, 179, -143, 275, -19, 318, 187, 324, 474, 314, 648, 233, 638, 85, 588, -76, 457, -141, 191, -162, 1, -1)
+
+[node name="cliffside_transition_point" type="Area2D" parent="." unique_id=1369967976]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point" unique_id=785033593]
+position = Vector2(213, -21.5)
+shape = SubResource("RectangleShape2D_i7141")
+
+[connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
+[connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
