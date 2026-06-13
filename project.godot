@@ -19,6 +19,10 @@ config/icon="res://art/icon.svg"
 
 global="*uid://0c12v0xd44qe"
 
+[display]
+
+window/handheld/orientation=1
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

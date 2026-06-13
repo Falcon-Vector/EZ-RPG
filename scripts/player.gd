@@ -141,6 +141,14 @@ func _on_deal_attack_timer_timeout():
 	attack_ip = false
 	
 
-
 func _on_make_red_timeout() -> void:
 	sprite.modulate = Color.WHITE
+
+func current_camera():
+	if global.current_scene == "world":
+		$world_camera.enabled = true
+		$cliffside_camera.enabled = false
+	elif global.current_scene == "cliff_side":
+		$world_camera.enabled = false
+		$cliffside_camera.enabled = true
+		
