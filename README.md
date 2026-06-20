@@ -1,6 +1,9 @@
 # EZ-RPG
 
 <img width="1279" height="662" alt="image" src="https://github.com/user-attachments/assets/f19a8998-2237-40c8-b30e-05aafab96d67" />
+<hr>
+***Note**: Slight use of ai to help me debug my code*
+<hr>
 
 This is my first game ever, made in an open-source engine called GoDot.
 My game is an RPG-type game, meaning that you're supposed to explore the maps and encounter stuff while exploring. Here what you encounter is a slime (who tries to kill you). The player uses the "E" key on their keyboard to deal damage to the slime.
