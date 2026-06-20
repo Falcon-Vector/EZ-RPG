@@ -13,6 +13,10 @@ config_version=5
 config/name="EZ RPG"
 run/main_scene="uid://syv8xiij2eh0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.4627451, 0.14117648, 0.14117648, 1)
+boot_splash/stretch_mode=0
+boot_splash/use_filter=false
+boot_splash/image="uid://pt5ty7bvvdau"
 config/icon="res://art/icon.svg"
 
 [autoload]
@@ -21,6 +25,9 @@ global="*uid://0c12v0xd44qe"
 
 [display]
 
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [editor_plugins]
