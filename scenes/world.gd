@@ -8,7 +8,7 @@ func _ready():
 		$player.position.x = global.player_exit_cliffside_posx
 		$player.position.y = global.player_exit_cliffside_posy
 
-func _process(delta):
+func _process(_delta):
 	change_scene()
 
 

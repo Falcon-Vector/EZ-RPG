@@ -19,12 +19,14 @@ func _physics_process(delta):
 		player_movement(delta)
 	enemy_attack()
 	attack()
+	update_health()
 	
 	if health <= 0:
 		player_alive = false
 		health = 0
 		print("you have died!")
 		self.queue_free()
+		get_tree().change_scene_to_file("res://gameover.tscn")
 		
 func player_movement(_delta):
 		if Input.is_action_pressed("d"):
@@ -151,4 +153,24 @@ func current_camera():
 	elif global.current_scene == "cliff_side":
 		$world_camera.enabled = false
 		$cliffside_camera.enabled = true
+		
+		
+func update_health():
+	var healthbar = $healthbar
+	
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+
+func _on_regen_timer_timeout() -> void:
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
 		

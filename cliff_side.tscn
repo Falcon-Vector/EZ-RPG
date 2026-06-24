@@ -135,7 +135,7 @@ sources/5 = SubResource("TileSetAtlasSource_8d7m7")
 sources/6 = SubResource("TileSetAtlasSource_un0ih")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntctd"]
-size = Vector2(50, 33)
+size = Vector2(50, 33.5)
 
 [node name="cliff_side" type="Node2D" unique_id=162986684]
 y_sort_enabled = true
@@ -164,12 +164,12 @@ scale = Vector2(1.0747204, 1.2047526)
 polygon = PackedVector2Array(62.341797, 346.12915, 261.46335, 346.12915, 386.14694, 346.12915, 448.48874, 346.12915, 449.41922, 423.32343, 449.916, 505.53693, 284.72522, 507.15808, 285.222, 534.58856, 237.76778, 534.58856, 238.2015, 506.328, 60.48085, 506.2991, 60.48085, 420.83328, 60.48085, 339.29913, 10.48085, 371.29913, 8.48085, 448.2991, 9.48085, 521.2991, 49.48085, 574.2991, 108.48085, 597.2991, 197.48085, 609.2991, 302.48108, 610.2991, 450.4812, 601.2991, 563.48126, 591.2991, 587.48126, 514.2991, 583.48126, 445.2991, 596.48126, 321.29913, 543.4812, 264.2991, 446.4812, 230.29912, 353.4812, 226.29912, 231.48085, 236.29912, 153.48085, 279.2991, 88.48085, 295.2991, 61.48085, 338.29913)
 
 [node name="cliffside_exitpoint" type="Area2D" parent="." unique_id=662007056]
-position = Vector2(19, 13)
+position = Vector2(213, 190)
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_exitpoint" unique_id=2040856533]
-position = Vector2(196, 198.5)
+position = Vector2(2, 20)
 shape = SubResource("RectangleShape2D_ntctd")
 
 [connection signal="body_entered" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_entered"]

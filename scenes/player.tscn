@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drwl3qqxc3unx" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cgvixhrxyfkwb" path="res://art/mystic_woods_free_2.2/sprites/characters/player.png" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bw1g5q5eyyylb" path="res://pause_menu.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_qhqgy")
@@ -476,8 +477,26 @@ drag_vertical_enabled = true
 
 [node name="world_camera" type="Camera2D" parent="." unique_id=2047510116]
 
+[node name="healthbar" type="ProgressBar" parent="." unique_id=1604794463]
+modulate = Color(0.3287786, 0.6841728, 0.08660731, 1)
+offset_left = -9.0
+offset_top = 17.000002
+offset_right = 170.99998
+offset_bottom = 44.000004
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="regen_timer" type="Timer" parent="." unique_id=394191952]
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=352202673]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=533378488 instance=ExtResource("3_qhqgy")]
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
 [connection signal="timeout" from="make_red" to="." method="_on_make_red_timeout"]
+[connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]

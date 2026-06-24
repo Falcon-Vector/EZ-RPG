@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bw1g5q5eyyylb"]
+
+[ext_resource type="Shader" uid="uid://djjmha8ql3ww2" path="res://new_shader.gdshader" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://2bhooyxhm22y" path="res://pause_menu.gd" id="1_nwcfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwcfo"]
+shader = ExtResource("1_hdmo1")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_nwcfo"]
+resource_name = "in"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05uyy"]
+_data = {
+&"in": SubResource("Animation_nwcfo")
+}
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=533378488]
+process_mode = 3
+script = ExtResource("1_nwcfo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1015221863]
+material = SubResource("ShaderMaterial_nwcfo")
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1430161981]
+anchors_preset = -1
+anchor_left = -0.002
+anchor_top = 0.060000002
+anchor_right = -0.002
+anchor_bottom = 0.060000002
+offset_left = 79.304
+offset_top = 123.119995
+offset_right = 411.304
+offset_bottom = 234.12
+scale = Vector2(3, 3)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=197310386]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=76561345]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1302345154]
+layout_mode = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1303942962]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1720059475]
+libraries/ = SubResource("AnimationLibrary_05uyy")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
