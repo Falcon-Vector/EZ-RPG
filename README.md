@@ -11,8 +11,8 @@ You can go to the new scene by going up, near the cliff-like structure in the ma
 I sincerely thank you for playing my game.
 
 ## Features:
- - Player movement with all attack directions and omvement angles.
- - Slime enenmy which can navigate(once range is correct) and attack player
+ - Player movement with all attack directions and movement angles.
+ - Slime enemy which can navigate(once range is correct) and attack player
  - player damage indicator
  - no sound effects for now but its a WIP.
  - large open tilemap to explore
@@ -21,6 +21,20 @@ I sincerely thank you for playing my game.
 ## Controls:
 E to attack
 WASD to move
+Esc to open menu
 
 ## Motivation:
 i always wanted to create my own game. I took inspiration from a tutorial which is a series. but now that i have learnt the basics imma start making good progress.
+
+## Stuff i've done without the help of the tutorial:
+of course i took help of the tutorial, but stuff ive done without the help of tutorial is as follows-
+ - made switch between scenes smoothly
+ - made make updating healthbars
+ - making the user interface (the escape menu, the death screen)
+ - auto navigation and detection for enemy
+ - made my own tileset
+
+## The Conclusion:
+so this is it! i hope i deviated enough from the tutorial and implemented the right amount of changes to get my project approved! (it got rejected last time because i forgot to say what i did in the read me without tutorial lol) i also hope you had fun playing the game.
+
+
