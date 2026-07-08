@@ -6,7 +6,7 @@
 <hr>
 
 This is my first game ever, made in an open-source engine called GoDot.
-My game is an RPG-type game, meaning that you're supposed to explore the maps and encounter stuff while exploring. Here what you encounter is a slime (who tries to kill you). The player uses the "E" key on their keyboard to deal damage to the slime.
+My game is an RPG-type game, meaning that you're supposed to explore the maps and encounter stuff while exploring. Here what you encounter is a slime ( who tries to kill you :3 ). The player uses the "E" key on their keyboard to deal damage to the slime.
 You can go to the new scene by going up, near the cliff-like structure in the main scene.
 I sincerely thank you for playing my game.
 
@@ -34,7 +34,14 @@ of course i took help of the tutorial, but stuff ive done without the help of tu
  - auto navigation and detection for enemy
  - made my own tileset
 
+## Setup/Run Instructions for EZ-RPG
+- go to itch.io, because my game is a browser embed
+- click on the play button
+- start the game by pressing W,A,S or D on your keyboard to move
+- anytime, during gameplay you can press Esc key to open the menu for the game
+- with the menu, you can quit the game whenever you feel like it
+
 ## The Conclusion:
-so this is it! i hope i deviated enough from the tutorial and implemented the right amount of changes to get my project approved! (it got rejected last time because i forgot to say what i did in the read me without tutorial lol) i also hope you had fun playing the game.
+so this is it! i hope i deviated enough from the tutorial and implemented the right amount of changes to get my project approved! (it got rejected last time because i forgot to say what i did in the read me without tutorial lol) i also hope you had fun playing the game. (AGHHHHHH IT GOT REJECTED AGAIN CUZ I FORGOT TO TYPE THE SETUP INSTRUCTIONS!!!, its ok i get it, after putting these changes ill resubmit) btw id love you, yes you the reviewer! to let me know how my game was and where i could have improved it even more! your support means alot to me and i hope THIS TIME my project gets approved lol. Thanks!
 
 
