@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EZ RPG"
-run/main_scene="uid://syv8xiij2eh0"
+run/main_scene="uid://dd1dehq0c7b4n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.4627451, 0.14117648, 0.14117648, 1)
 boot_splash/stretch_mode=0
@@ -22,6 +22,7 @@ config/icon="res://art/icon.svg"
 [autoload]
 
 global="*uid://0c12v0xd44qe"
+GameManager="*uid://dcy86fp6y0q4q"
 
 [display]
 

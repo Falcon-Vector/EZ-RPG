@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csixce4470ovv"]
 
 [ext_resource type="Script" uid="uid://dojqf3ojq3k6o" path="res://gameover.gd" id="1_4nh4k"]
+[ext_resource type="AudioStream" uid="uid://dkjw36dssv7yf" path="res://art/12.-Hard-Time.ogg" id="2_tpdqf"]
 
 [node name="gameover" type="CanvasLayer" unique_id=68471308]
 script = ExtResource("1_4nh4k")
@@ -40,6 +41,10 @@ offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit...?"
+
+[node name="gameover_bg" type="AudioStreamPlayer" parent="." unique_id=1277766151]
+stream = ExtResource("2_tpdqf")
+autoplay = true
 
 [connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d2co4bgc82bjk" path="res://art/mystic_woods_free_2.2/sprites/objects/objects.png" id="4_ntctd"]
 [ext_resource type="Texture2D" uid="uid://ctbl8rfw2vvg0" path="res://art/mystic_woods_free_2.2/sprites/objects/chest_01.png" id="5_pee1v"]
 [ext_resource type="PackedScene" uid="uid://db0fj063g6abg" path="res://scenes/player.tscn" id="6_4wk1w"]
+[ext_resource type="AudioStream" uid="uid://clythap5ku1gb" path="res://art/16.-The-Life-I-Deserve-Gameplay-Trailer.ogg" id="8_ntctd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3r6j"]
 texture = ExtResource("1_i0rkg")
@@ -171,6 +172,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_exitpoint" unique_id=2040856533]
 position = Vector2(2, 20)
 shape = SubResource("RectangleShape2D_ntctd")
+
+[node name="background_cliff" type="AudioStreamPlayer" parent="." unique_id=632489946]
+stream = ExtResource("8_ntctd")
+autoplay = true
 
 [connection signal="body_entered" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_entered"]
 [connection signal="body_exited" from="cliffside_exitpoint" to="." method="_on_cliffside_exitpoint_body_exited"]

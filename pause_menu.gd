@@ -33,6 +33,8 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	resume()
+	GameManager.time_survived = 0.0
+	GameManager.game_won = false
 	get_tree().reload_current_scene()
 
 

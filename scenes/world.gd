@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var background_world: AudioStreamPlayer = $background_world
+
 func _ready():
 	if global.game_first_loadin == true:
 		$player.position.x = global.player_start_posx

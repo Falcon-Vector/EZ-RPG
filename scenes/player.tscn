@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://drwl3qqxc3unx" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cgvixhrxyfkwb" path="res://art/mystic_woods_free_2.2/sprites/characters/player.png" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://bw1g5q5eyyylb" path="res://pause_menu.tscn" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dccxplhbr6vf2" path="res://art/Sounds/sfx_jump.ogg" id="4_dqkch"]
+[ext_resource type="FontFile" uid="uid://dfvhpry6gomx0" path="res://Playpen_Sans_Deva,Press_Start_2P/Press_Start_2P/PressStart2P-Regular.ttf" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("2_qhqgy")
@@ -493,6 +495,18 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=352202673]
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=533378488 instance=ExtResource("3_qhqgy")]
+
+[node name="death_sound" type="AudioStreamPlayer" parent="." unique_id=2098953938]
+stream = ExtResource("4_dqkch")
+volume_db = 1.0
+
+[node name="timer_label" type="Label" parent="." unique_id=1901358919]
+offset_left = -18.0
+offset_top = 22.0
+offset_right = 14.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("5_qlg0r")
+theme_override_font_sizes/font_size = 8
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_exited" from="player_hitbox" to="." method="_on_player_hitbox_area_exited"]

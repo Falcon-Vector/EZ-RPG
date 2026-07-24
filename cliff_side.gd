@@ -1,5 +1,10 @@
 extends Node2D
 
+@onready var background_cliff: AudioStreamPlayer = $background_cliff
+
+func _ready() -> void:
+	background_cliff.play()
+
 func _process(delta: float) -> void:
 	change_scenes()
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2co4bgc82bjk" path="res://art/mystic_woods_free_2.2/sprites/objects/objects.png" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://db0fj063g6abg" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://deari7f6ifrm0" path="res://enemy.tscn" id="5_71j4m"]
+[ext_resource type="AudioStream" uid="uid://fquebrj13nxb" path="res://art/03.-Adventures-In-Grassland.ogg" id="7_i7141"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -99,7 +100,7 @@ layer_2/tile_data = PackedInt32Array(2, 655362, 7, 262150, 655362, 7, 262163, 65
 
 [node name="player" parent="." unique_id=635433776 instance=ExtResource("4_k0juu")]
 y_sort_enabled = true
-position = Vector2(202, 2)
+position = Vector2(44, 66)
 
 [node name="enemy" parent="." unique_id=361393803 instance=ExtResource("5_71j4m")]
 position = Vector2(294, 142)
@@ -116,6 +117,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cliffside_transition_point" unique_id=785033593]
 position = Vector2(213, -21.5)
 shape = SubResource("RectangleShape2D_i7141")
+
+[node name="background_world" type="AudioStreamPlayer" parent="." unique_id=825198620]
+stream = ExtResource("7_i7141")
+autoplay = true
 
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]

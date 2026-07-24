@@ -1,6 +1,11 @@
 extends CharacterBody2D
+
+@onready var timer_label = $timer_label
+@onready var death_sound: AudioStreamPlayer = $death_sound
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var time_survived = 0.0
+var game_won = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -21,9 +26,18 @@ func _physics_process(delta):
 	attack()
 	update_health()
 	
+	if !GameManager.game_won:
+		GameManager.time_survived += delta
+
+		var minutes = int(GameManager.time_survived) / 60
+		var seconds = int(GameManager.time_survived) % 60
+
+		timer_label.text = "%02d:%02d" % [minutes, seconds]
+	
 	if health <= 0:
 		player_alive = false
 		health = 0
+		death_sound.play()
 		print("you have died!")
 		self.queue_free()
 		get_tree().change_scene_to_file("res://gameover.tscn")
