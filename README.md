@@ -14,9 +14,10 @@ I sincerely thank you for playing my game.
  - Player movement with all attack directions and movement angles.
  - Slime enemy which can navigate(once range is correct) and attack player
  - player damage indicator
- - no sound effects for now but its a WIP.
  - large open tilemap to explore
  - you can travel between 2 scenes giving a exploration type feeling.
+ - very responsive ui system (the main menu, death screen and esc menu)
+ - survival timer which tells you how long youve been playing and surviving
 
 ## Controls:
 E to attack
@@ -33,6 +34,10 @@ of course i took help of the tutorial, but stuff ive done without the help of tu
  - making the user interface (the escape menu, the death screen)
  - auto navigation and detection for enemy
  - made my own tileset
+ - made a timer system
+ - adding and implementing changing music
+ - added main menu
+ - added death screen
 
 ## Setup/Run Instructions for EZ-RPG
 - go to itch.io, because my game is a browser embed
