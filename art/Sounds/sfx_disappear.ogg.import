@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/sfx_disappear.ogg-197bba0c62e6c5b43a90348010f
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var swing_sound: AudioStreamPlayer = $swing_sound
 @onready var timer_label = $timer_label
 @onready var death_sound: AudioStreamPlayer = $death_sound
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -20,6 +21,9 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
+	if not player_alive:
+		return
+		
 	if not global.player_current_attack:
 		player_movement(delta)
 	enemy_attack()
@@ -34,13 +38,28 @@ func _physics_process(delta):
 
 		timer_label.text = "%02d:%02d" % [minutes, seconds]
 	
-	if health <= 0:
-		player_alive = false
-		health = 0
-		death_sound.play()
-		print("you have died!")
-		self.queue_free()
-		get_tree().change_scene_to_file("res://gameover.tscn")
+	if health <= 0 and player_alive:
+		print("die triggered, health: ", health)
+		die()
+	
+func die():
+	player_alive = false
+	health = 0
+	print("you have died!")
+	velocity = Vector2.ZERO
+	sprite.modulate = Color.WHITE
+	death_sound.play()
+	sprite.play("death")
+	
+	var sound_length = death_sound.stream.get_length()
+	var anim_timer = get_tree().create_timer(sound_length)
+	await sprite.animation_finished
+	if anim_timer.time_left > 0:
+		await anim_timer.timeout
+		
+	get_tree().change_scene_to_file("res://gameover.tscn")
+	
+	
 		
 func player_movement(_delta):
 		if Input.is_action_pressed("d"):
@@ -108,6 +127,8 @@ func play_anim(movement):
 				anim.play("back_idle")
 
 func enemy_attack():
+	if not player_alive:
+		return
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20
 		enemy_attack_cooldown = false
@@ -126,14 +147,17 @@ func _on_player_hitbox_area_exited(area: Area2D) -> void:
 
 
 func _on_attack_cooldown_timeout() -> void:
+	if not player_alive:
+		return
 	enemy_attack_cooldown = true
 
 func attack():
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and not attack_ip:
 		global.player_current_attack = true
 		attack_ip = true
+		swing_sound.play()
 		if dir == "right":
 			sprite.flip_h = false
 			sprite.play("side_attack")
@@ -181,6 +205,8 @@ func update_health():
 
 
 func _on_regen_timer_timeout() -> void:
+	if not player_alive:
+		return
 	if health < 100:
 		health = health + 20
 		if health > 100:

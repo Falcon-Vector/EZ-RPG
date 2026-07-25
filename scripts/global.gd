@@ -20,7 +20,12 @@ func finish_changescenes():
 		else:
 			current_scene = "world"
 			
-
+func _on_restart_pressed():
+	global.current_scene = "world"
+	global.transition_scene = false
+	global.game_first_loadin = true
+	
+	get_tree().change_scene_to_file("res://world.tscn")
 			
 		
 	

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7jdah5rl83yk" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://m4jccnepxqb8" path="res://playexitquit/buttons/play/play.png" id="2_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://nw2buyknnn4m" path="res://playexitquit/buttons/quit/shiny/quit_shiny.png" id="3_jix8l"]
-[ext_resource type="AudioStream" uid="uid://bnqt86l81h114" path="res://art/15.-That-Sinking-Feeling-Main-Theme.ogg" id="4_jix8l"]
+[ext_resource type="AudioStream" uid="uid://fquebrj13nxb" path="res://art/03.-Adventures-In-Grassland.ogg" id="4_jix8l"]
 
 [node name="main_menu" type="Node2D" unique_id=1980673366]
 script = ExtResource("1_06t4h")
@@ -16,17 +16,17 @@ offset_bottom = 40.0
 
 [node name="play" type="TextureButton" parent="button_manager" unique_id=1086004807]
 layout_mode = 0
-offset_left = 504.0
+offset_left = 480.0
 offset_top = 152.0
-offset_right = 717.0
+offset_right = 693.0
 offset_bottom = 254.0
 texture_normal = ExtResource("2_fu7sn")
 
 [node name="quit" type="TextureButton" parent="button_manager" unique_id=983009087]
 layout_mode = 0
-offset_left = 504.0
+offset_left = 480.0
 offset_top = 448.0
-offset_right = 717.0
+offset_right = 693.0
 offset_bottom = 550.0
 texture_normal = ExtResource("3_jix8l")
 
